@@ -55,7 +55,7 @@ export default tseslint.config(
 
       // the following two are mainly for consistency
       "object-shorthand": "error",
-      "arrow-body-style": ["error", "always"],
+      "arrow-body-style": ["error"],
 
       // This will help avoid unnecessary curly braces in JSX
       "react/jsx-curly-brace-presence": "error",
