@@ -9,6 +9,9 @@ yarn.lock
 .output
 .vinxi
 
+.tsbuildinfo
+.env
+
 /build/
 /api/
 /server/build
