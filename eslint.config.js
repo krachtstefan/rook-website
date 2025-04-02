@@ -18,14 +18,11 @@ export default tseslint.config(
       importPlugin.flatConfigs.typescript,
       eslintJs.configs.recommended,
       tseslint.configs.recommended,
+      reactPlugin.configs.flat.recommended,
+      reactHooks.configs["recommended-latest"],
+      reactRefresh.configs.recommended,
       prettier, // should always be last to avoid conflicts
     ],
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-      tailwindcss: tailwindcssPlugin,
-      react: reactPlugin,
-    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -39,6 +36,7 @@ export default tseslint.config(
         callees: ["clsx", "cn", "twMerge", "twMergeClsx"],
       },
       "import/resolver": {
+        typescript: {},
         node: {
           extensions: [".js", ".jsx", ".ts", ".tsx"],
         },
@@ -59,13 +57,6 @@ export default tseslint.config(
       "object-shorthand": "error",
       "arrow-body-style": ["error", "always"],
 
-      // React Refresh rules
-      // this ensures we do not create exports that will break hot reloading
-      "react-refresh/only-export-components": [
-        "error",
-        { allowConstantExport: true },
-      ],
-
       // This will help avoid unnecessary curly braces in JSX
       "react/jsx-curly-brace-presence": "error",
 
@@ -82,6 +73,9 @@ export default tseslint.config(
         "warn",
         { argsIgnorePattern: "^_" },
       ],
+
+      // React is always in scope
+      "react/react-in-jsx-scope": "off",
 
       // This modifies the rule from eslint-plugin-import, which does
       // not recognize /vite.svg where / stands for the "public" folder,
