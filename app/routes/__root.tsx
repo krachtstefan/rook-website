@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-router";
 
 import type { ReactNode } from "react";
+import appCss from "@/styles/app.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -19,6 +20,12 @@ export const Route = createRootRoute({
       },
       {
         title: "Rook",
+      },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
       },
     ],
   }),
