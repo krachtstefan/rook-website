@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "build": "vinxi build",
+    "build": "pnpm run check && vinxi build",
     "start": "vinxi start",
     "check": "run-p check:* -c",
     "check:prettier": "prettier . --check",

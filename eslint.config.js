@@ -9,7 +9,7 @@ import tailwindcssPlugin from "eslint-plugin-tailwindcss";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  { ignores: ["**/build", ".*"] },
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
