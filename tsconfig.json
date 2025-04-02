@@ -17,6 +17,8 @@
     "paths": {
       "@/*": ["./app/*"]
     },
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
     "strictNullChecks": true,
     "noEmit": true
   }
