@@ -13,6 +13,7 @@ export default tseslint.config(
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
+      tailwindcssPlugin.configs["flat/recommended"],
       importPlugin.flatConfigs.recommended,
       importPlugin.flatConfigs.typescript,
       eslintJs.configs.recommended,
@@ -24,7 +25,6 @@ export default tseslint.config(
       "react-refresh": reactRefresh,
       tailwindcss: tailwindcssPlugin,
       react: reactPlugin,
-      "@tanstack/query": tanstackQueryPlugin,
     },
     languageOptions: {
       ecmaVersion: 2020,
@@ -39,9 +39,7 @@ export default tseslint.config(
         callees: ["clsx", "cn", "twMerge", "twMergeClsx"],
       },
       "import/resolver": {
-        typescript: {},
         node: {
-          paths: ["src"],
           extensions: [".js", ".jsx", ".ts", ".tsx"],
         },
       },
@@ -49,9 +47,6 @@ export default tseslint.config(
     rules: {
       // Please provide reasons for adding / overriding non-obvious rules,
       // as it is hard to evaluate this at a later time.
-
-      // Tailwind rules
-      "tailwindcss/no-custom-classname": "warn",
 
       // prettier sorts tailwind classes, this avoids conflicts
       "tailwindcss/classnames-order": "off",
@@ -62,7 +57,7 @@ export default tseslint.config(
 
       // the following two are mainly for consistency
       "object-shorthand": "error",
-      "arrow-body-style": "error",
+      "arrow-body-style": ["error", "always"],
 
       // React Refresh rules
       // this ensures we do not create exports that will break hot reloading
@@ -87,9 +82,6 @@ export default tseslint.config(
         "warn",
         { argsIgnorePattern: "^_" },
       ],
-
-      // TanStack Query rules
-      "@tanstack/query/exhaustive-deps": "error",
 
       // This modifies the rule from eslint-plugin-import, which does
       // not recognize /vite.svg where / stands for the "public" folder,
