@@ -11,9 +11,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as R3dImport } from './routes/3d'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const R3dRoute = R3dImport.update({
+  id: '/3d',
+  path: '/3d',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -32,6 +39,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/3d': {
+      id: '/3d'
+      path: '/3d'
+      fullPath: '/3d'
+      preLoaderRoute: typeof R3dImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +53,37 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/3d': typeof R3dRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/3d': typeof R3dRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/3d': typeof R3dRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/3d'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/3d'
+  id: '__root__' | '/' | '/3d'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R3dRoute: typeof R3dRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R3dRoute: R3dRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/3d"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/3d": {
+      "filePath": "3d.tsx"
     }
   }
 }
