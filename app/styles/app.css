@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#FFB503];
+  @apply bg-rook-yellow;
 }

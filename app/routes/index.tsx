@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="flex h-dvh flex-col items-center justify-center p-10">
-      <Logo className="size-auto max-h-[500px] max-w-[500px] fill-[#7900FF]" />
+      <Logo className="fill-rook-violet size-auto max-h-[500px] max-w-[500px]" />
     </div>
   );
 }
