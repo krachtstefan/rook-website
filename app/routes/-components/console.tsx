@@ -17,7 +17,7 @@ const Model = () => {
         const line = new THREE.LineSegments(
           edges,
           new THREE.LineBasicMaterial({
-            color: 0x00bfff, // Technical drawing blue
+            color: 0x9000ff, // Technical drawing blue
             linewidth: 1,
           })
         );
@@ -55,7 +55,7 @@ export function Console() {
       <Suspense fallback={null}>
         <Canvas
           camera={{ position: [0, 0, 50], fov: 50 }}
-          style={{ background: "#1a1a1a" }} // Dark gray background
+          style={{ background: "#FFDC00" }} // Dark gray background
         >
           <OrbitControls enableDamping dampingFactor={0.1} />
           <gridHelper
