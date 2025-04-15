@@ -1,21 +1,32 @@
 import * as THREE from "three";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Html, OrbitControls, useGLTF } from "@react-three/drei";
-import { Suspense, useState } from "react";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { Html, OrbitControls } from "@react-three/drei";
+import { Suspense, useEffect, useState } from "react";
+
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 
 const Model = () => {
-  const { scene } = useGLTF("/rook-console.glb");
-  scene.traverse((child) => {
-    if (child instanceof THREE.Mesh) {
-      child.material = new THREE.MeshBasicMaterial({
-        wireframe: true,
-        color: "white",
-      });
-    }
-  });
+  const obj = useLoader(OBJLoader, "/assembly.obj");
+  const [model] = useState(() => new THREE.Group());
 
-  return <primitive object={scene} />;
+  useEffect(() => {
+    obj.traverse((child: THREE.Object3D) => {
+      if (child instanceof THREE.Mesh) {
+        const edges = new THREE.EdgesGeometry(child.geometry);
+        const line = new THREE.LineSegments(
+          edges,
+          new THREE.LineBasicMaterial({
+            color: 0x00bfff, // Technical drawing blue
+            linewidth: 1,
+          })
+        );
+        model.add(line);
+      }
+    });
+  }, [obj, model]);
+
+  return <primitive object={model} position={[0, 0, 0]} />;
 };
 
 function CameraDebug() {
@@ -42,20 +53,15 @@ export function Console() {
   return (
     <div className="relative h-screen">
       <Suspense fallback={null}>
-        <Canvas>
+        <Canvas
+          camera={{ position: [0, 0, 50], fov: 50 }}
+          style={{ background: "#1a1a1a" }} // Dark gray background
+        >
           <OrbitControls enableDamping dampingFactor={0.1} />
-          <ambientLight intensity={Math.PI / 2} />
-          <spotLight
-            position={[10, 10, 10]}
-            angle={0.15}
-            penumbra={1}
-            decay={0}
-            intensity={Math.PI}
-          />
-          <pointLight
-            position={[-10, -10, -10]}
-            decay={0}
-            intensity={Math.PI}
+          <gridHelper
+            args={[100, 100, 0x404040, 0x404040]}
+            position={[0, -10, 0]}
+            rotation={[0, 0, 0]}
           />
           <Model />
           <CameraDebug />
