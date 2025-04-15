@@ -11,15 +11,13 @@ const Model = () => {
   const [model] = useState(() => new THREE.Group());
 
   useEffect(() => {
-    obj.traverse((child: THREE.Object3D) => {
+    obj.traverse((child) => {
       if (child instanceof THREE.Mesh) {
-        const edges = new THREE.EdgesGeometry(child.geometry);
+        // Using a threshold angle of 15 degrees to only show more significant edges
+        const edges = new THREE.EdgesGeometry(child.geometry, 15);
         const line = new THREE.LineSegments(
           edges,
-          new THREE.LineBasicMaterial({
-            color: 0x9000ff, // Technical drawing blue
-            linewidth: 1,
-          })
+          new THREE.LineBasicMaterial({ color: 0x000000 })
         );
         model.add(line);
       }
@@ -54,14 +52,16 @@ export function Console() {
     <div className="relative h-screen">
       <Suspense fallback={null}>
         <Canvas
-          camera={{ position: [0, 0, 50], fov: 50 }}
-          style={{ background: "#FFDC00" }} // Dark gray background
+          camera={{ position: [-50, 50, 50], fov: 50, zoom: 4 }}
+          style={{ background: "#FFDC00" }}
+          orthographic
         >
           <OrbitControls enableDamping dampingFactor={0.1} />
           <gridHelper
             args={[100, 100, 0x404040, 0x404040]}
             position={[0, -10, 0]}
             rotation={[0, 0, 0]}
+            visible={false}
           />
           <Model />
           <CameraDebug />
