@@ -83,6 +83,8 @@ export default tseslint.config(
           ignore: ["^/"], // Ignore all imports starting with "/"
         },
       ],
+      // needs to be disabled to work with react three fiber and with TS this rule is redundant
+      "react/no-unknown-property": ["off"],
     },
   }
 );

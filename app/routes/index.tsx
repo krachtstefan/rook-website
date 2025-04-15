@@ -1,4 +1,5 @@
 import { Logo } from "./-components/logo";
+import { RookComputerMK2 } from "./-components/rook-computer-mk2";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -7,8 +8,11 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="flex h-dvh flex-col items-center justify-center p-10">
-      <Logo className="size-auto max-h-[500px] max-w-[500px] fill-rook-violet" />
+    <div className="flex h-dvh flex-col items-center justify-center">
+      <Logo className="m-10 size-auto max-h-[500px] max-w-[500px] fill-rook-violet" />
+      <div className="absolute inset-0 -z-10 text-[100px]">
+        <RookComputerMK2 />
+      </div>
     </div>
   );
 }

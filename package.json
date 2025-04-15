@@ -14,12 +14,16 @@
     "prettier": "prettier . --write"
   },
   "dependencies": {
+    "@react-three/drei": "^10.0.5",
+    "@react-three/fiber": "^9.1.1",
     "@tanstack/react-router": "^1.114.29",
     "@tanstack/react-router-devtools": "^1.114.31",
     "@tanstack/react-start": "^1.114.31",
+    "@types/three": "^0.175.0",
     "eslint-import-resolver-typescript": "^4.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "three": "^0.175.0",
     "vinxi": "0.5.3"
   },
   "devDependencies": {
