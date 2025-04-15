@@ -18,7 +18,7 @@ const Model = () => {
         const edges = new THREE.EdgesGeometry(child.geometry, 15);
         const line = new THREE.LineSegments(
           edges,
-          new THREE.LineBasicMaterial({ color: 0x000000 })
+          new THREE.LineBasicMaterial({ color: 0x8b8000 })
         );
         model.add(line);
       }
