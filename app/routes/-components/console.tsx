@@ -7,7 +7,7 @@ import { Suspense, useEffect, useState } from "react";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 
 const Model = () => {
-  const obj = useLoader(OBJLoader, "/assembly.obj");
+  const obj = useLoader(OBJLoader, "/RetroConsoleMK2.obj");
   const [model] = useState(() => new THREE.Group());
 
   useEffect(() => {
