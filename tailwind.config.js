@@ -2,7 +2,12 @@
 export default {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "rook-violet": "#9000FF",
+        "rook-yellow": "#FFDC00",
+      },
+    },
   },
   plugins: [],
 };

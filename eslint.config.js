@@ -46,9 +46,6 @@ export default tseslint.config(
       // Please provide reasons for adding / overriding non-obvious rules,
       // as it is hard to evaluate this at a later time.
 
-      // prettier sorts tailwind classes, this avoids conflicts
-      "tailwindcss/classnames-order": "off",
-
       // JavaScript/TypeScript coding standards
       // nested ternaries are hard to read
       "no-nested-ternary": "error",
