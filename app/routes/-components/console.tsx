@@ -8,6 +8,7 @@ import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 
 const Model = () => {
   const obj = useLoader(OBJLoader, "/RetroConsoleMK2.obj");
+  const [pivot] = useState(() => new THREE.Group());
   const [model] = useState(() => new THREE.Group());
 
   useEffect(() => {
@@ -22,9 +23,21 @@ const Model = () => {
         model.add(line);
       }
     });
-  }, [obj, model]);
 
-  return <primitive object={model} position={[0, 0, 0]} />;
+    // Center the model
+    const box = new THREE.Box3().setFromObject(model);
+    const center = box.getCenter(new THREE.Vector3());
+    model.position.sub(center);
+
+    // Add model to pivot
+    pivot.add(model);
+  }, [obj, model, pivot]);
+
+  useFrame((state, delta) => {
+    pivot.rotation.y += delta * 0.2; // Rotate 0.2 radians per second
+  });
+
+  return <primitive object={pivot} position={[0, 0, 0]} />;
 };
 
 function CameraDebug() {
