@@ -1,3 +1,4 @@
+import { BookOpenText, HardDriveDownload } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -11,7 +12,6 @@ import { interpolate, useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./-components/logo";
 import { RookComputerMK2 } from "./-components/rook-computer-mk2";
-import { cn } from "@/lib/utils";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -19,140 +19,87 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const scrollProgress = useScrollAnimation({ scrollDistance: 100 });
-  const logoSize = interpolate({ from: 100, to: 50, progress: scrollProgress });
-  const fontSize = interpolate({ from: 28, to: 18, progress: scrollProgress });
+  const scrollProgress = useScrollAnimation({ scrollDistance: 200 });
+  const headerSize = interpolate({
+    from: 100,
+    to: 70,
+    progress: scrollProgress,
+  });
+  const fontSize = interpolate({
+    from: 35,
+    to: 22,
+    progress: scrollProgress,
+  });
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 w-full border-b bg-background p-2">
-        <div className="container mx-auto flex items-center justify-center gap-4">
-          <Logo
-            className={cn("size-auto fill-primary")}
-            style={{ maxHeight: `${logoSize}px`, maxWidth: `${logoSize}px` }}
-          />
+      <header
+        className="fixed inset-x-0 top-0 z-50 w-full border-b bg-background"
+        style={{ height: `${headerSize}px` }}
+      >
+        <div className="relative mx-auto flex h-full items-center justify-center gap-4 p-4">
+          <Logo className="h-full w-auto fill-primary" />
           <span
             className="font-bold text-primary"
-            style={{
-              fontSize: `${fontSize}px`,
-            }}
+            style={{ fontSize: `${fontSize}px` }}
           >
             R∞k Komputer
           </span>
         </div>
       </header>
-      <div className="flex min-h-dvh flex-col p-10 pt-32">
-        <Card>
-          <CardContent className="p-6 text-lg">
-            <p className="mb-4">
-              Welcome to R∞k, where infinite possibilities meet computational
-              excellence. Our groundbreaking system represents the next
-              evolution in computing technology, pushing the boundaries of whats
-              possible.
+      <main
+        className="container flex flex-col gap-20 pb-10"
+        style={{ marginTop: `${headerSize + 40}px` }}
+      >
+        <div className="grid gap-10 md:grid-cols-2">
+          <div className="flex flex-col gap-8">
+            <h1 className="text-5xl">Meet R∞k Mk2</h1>
+            <p className="text-pretty text-lg font-medium sm:text-xl/8">
+              A retro console built on Raspberry Pi, featuring a unique Cardidge
+              system that allows for fully customizable boot partitions. Each
+              Cardidge contains an entire boot partition, giving you complete
+              control over your gaming experience.
             </p>
-            <p className="mb-4">
-              Built with cutting-edge architecture and innovative design
-              principles, R∞k delivers unparalleled performance while
-              maintaining an elegant simplicity that defines modern computing.
-            </p>
-            <p>
-              Experience the future of technology today with our revolutionary
-              platform that seamlessly integrates power, efficiency, and style
-              into one remarkable package.
-            </p>
-          </CardContent>
-          <CardContent className="p-6 text-lg">
-            <p className="mb-4">
-              Welcome to R∞k, where infinite possibilities meet computational
-              excellence. Our groundbreaking system represents the next
-              evolution in computing technology, pushing the boundaries of whats
-              possible.
-            </p>
-            <p className="mb-4">
-              Built with cutting-edge architecture and innovative design
-              principles, R∞k delivers unparalleled performance while
-              maintaining an elegant simplicity that defines modern computing.
-            </p>
-            <p>
-              Experience the future of technology today with our revolutionary
-              platform that seamlessly integrates power, efficiency, and style
-              into one remarkable package.
-            </p>
-          </CardContent>
-          <CardContent className="p-6 text-lg">
-            <p className="mb-4">
-              Welcome to R∞k, where infinite possibilities meet computational
-              excellence. Our groundbreaking system represents the next
-              evolution in computing technology, pushing the boundaries of whats
-              possible.
-            </p>
-            <p className="mb-4">
-              Built with cutting-edge architecture and innovative design
-              principles, R∞k delivers unparalleled performance while
-              maintaining an elegant simplicity that defines modern computing.
-            </p>
-            <p>
-              Experience the future of technology today with our revolutionary
-              platform that seamlessly integrates power, efficiency, and style
-              into one remarkable package.
-            </p>
-          </CardContent>
-        </Card>
-        <Carousel className="w-full max-w-xs">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-        {/* <Card className="flex flex-col gap-4 p-10">
-        <Button>Click me</Button>
-        <Button variant="secondary">Click me</Button>
-        <Button variant="destructive">Click me</Button>
-        <Button variant="ghost">Click me</Button>
-        <Button variant="link">Click me</Button>
-        <Button variant="outline">Click me</Button>
-      </Card>
-      <Card>
-        <CardContent className="p-6 text-lg">
-          <p className="mb-4">
-            Welcome to R∞k, where infinite possibilities meet computational
-            excellence. Our groundbreaking system represents the next evolution
-            in computing technology, pushing the boundaries of what's possible.
-          </p>
-          <p className="mb-4">
-            Built with cutting-edge architecture and innovative design
-            principles, R∞k delivers unparalleled performance while maintaining
-            an elegant simplicity that defines modern computing.
-          </p>
-          <p>
-            Experience the future of technology today with our revolutionary
-            platform that seamlessly integrates power, efficiency, and style
-            into one remarkable package.
-          </p>
-        </CardContent>
-      </Card>
-    
-      
-      R∞k
-      <br />
-      Komputer
-      <div className="absolute inset-0 -z-10">
-        <RookComputerMK2 />
-      </div> */}
-      </div>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button>
+                <BookOpenText />
+                Learn more
+              </Button>
+              <Button variant="outline">
+                <HardDriveDownload />
+                Build a R∞k Mk2
+              </Button>
+            </div>
+          </div>
+          <div className="relative p-2 max-md:h-[300px]">
+            <div className="absolute inset-0">
+              <RookComputerMK2 />
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-8">
+          <h1 className="text-5xl">Gallery</h1>
+          <Carousel className="w-full max-w-xl">
+            <CarouselContent>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-4xl font-semibold">
+                          {index + 1}
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </main>
     </>
   );
 }
