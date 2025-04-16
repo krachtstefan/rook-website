@@ -26,7 +26,7 @@ function Home() {
     progress: scrollProgress,
   });
   const fontSize = interpolate({
-    from: 35,
+    from: 32,
     to: 22,
     progress: scrollProgress,
   });
