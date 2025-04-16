@@ -6,7 +6,6 @@ import {
 import { createRouter } from "./router";
 import { getRouterManifest } from "@tanstack/react-start/router-manifest";
 
-// eslint-disable-next-line react-refresh/only-export-components
 export default createStartHandler({
   createRouter,
   getRouterManifest,

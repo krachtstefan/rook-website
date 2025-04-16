@@ -85,6 +85,9 @@ export default tseslint.config(
       ],
       // needs to be disabled to work with react three fiber and with TS this rule is redundant
       "react/no-unknown-property": ["off"],
+
+      // Disable react-refresh/only-export-components rule
+      "react-refresh/only-export-components": "off",
     },
   }
 );
