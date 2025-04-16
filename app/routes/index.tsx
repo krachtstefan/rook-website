@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useEffect, useState } from "react";
+import { interpolate, useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import { Button } from "@/components/ui/button";
 import { Logo } from "./-components/logo";
@@ -19,35 +19,26 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const scrollProgress = useScrollAnimation({ scrollDistance: 100 });
+  const logoSize = interpolate({ from: 100, to: 50, progress: scrollProgress });
+  const fontSize = interpolate({ from: 28, to: 18, progress: scrollProgress });
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 w-full border-b bg-background transition-all duration-300",
-          isScrolled ? "py-2" : "py-4"
-        )}
-      >
+      <header className="fixed inset-x-0 top-0 z-50 w-full border-b bg-background p-2">
         <div className="container mx-auto flex items-center justify-center gap-4">
           <Logo
-            className={cn(
-              "size-auto fill-primary transition-all duration-300",
-              isScrolled
-                ? "max-h-[50px] max-w-[50px]"
-                : "max-h-[100px] max-w-[100px]"
-            )}
+            className={cn("size-auto fill-primary")}
+            style={{ maxHeight: `${logoSize}px`, maxWidth: `${logoSize}px` }}
           />
-          <span className="text-xl font-bold text-primary">R∞k Komputer</span>
+          <span
+            className="font-bold text-primary"
+            style={{
+              fontSize: `${fontSize}px`,
+            }}
+          >
+            R∞k Komputer
+          </span>
         </div>
       </header>
       <div className="flex min-h-dvh flex-col p-10 pt-32">
@@ -107,6 +98,25 @@ function Home() {
             </p>
           </CardContent>
         </Card>
+        <Carousel className="w-full max-w-xs">
+          <CarouselContent>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index}>
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-4xl font-semibold">
+                        {index + 1}
+                      </span>
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
         {/* <Card className="flex flex-col gap-4 p-10">
         <Button>Click me</Button>
         <Button variant="secondary">Click me</Button>
@@ -134,23 +144,7 @@ function Home() {
           </p>
         </CardContent>
       </Card>
-      <Carousel className="w-full max-w-xs">
-        <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <div className="p-1">
-                <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-4xl font-semibold">{index + 1}</span>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+    
       
       R∞k
       <br />
