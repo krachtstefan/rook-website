@@ -4,7 +4,6 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Suspense, useEffect, useRef } from "react";
 
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
-import { OrbitControls } from "@react-three/drei";
 
 const SpinningModel = () => {
   const obj = useLoader(OBJLoader, "/rook-computer-mk2.obj");
@@ -18,11 +17,7 @@ const SpinningModel = () => {
         const edges = new THREE.EdgesGeometry(child.geometry, 15);
         const line = new THREE.LineSegments(
           edges,
-          new THREE.LineBasicMaterial({
-            color: "black",
-            opacity: 0.2,
-            transparent: true,
-          })
+          new THREE.LineBasicMaterial({ color: "black" })
         );
         model.current.add(line);
       }
@@ -51,7 +46,6 @@ export function RookComputerMK2() {
         camera={{ position: [-50, 50, 50], fov: 50, zoom: 2 }}
         orthographic
       >
-        <OrbitControls enableDamping dampingFactor={0.1} />
         <SpinningModel />
       </Canvas>
     </Suspense>
