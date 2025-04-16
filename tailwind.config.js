@@ -11,8 +11,6 @@ export default {
     },
     extend: {
       colors: {
-        "rook-violet": "var(--rook-violet)",
-        "rook-yellow": "var(--rook-yellow)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

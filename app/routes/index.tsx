@@ -14,7 +14,7 @@ function Home() {
       <Card className="p-10">
         <Button>Click me</Button>
       </Card>
-      <Logo className="m-10 size-auto max-h-[500px] max-w-[500px] fill-rook-violet" />
+      <Logo className="m-10 size-auto max-h-[500px] max-w-[500px] fill-primary" />
       <div className="absolute inset-0 -z-10 text-[100px]">
         <RookComputerMK2 />
       </div>
