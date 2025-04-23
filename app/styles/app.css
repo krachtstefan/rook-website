@@ -66,6 +66,7 @@
   * {
     @apply border-border;
     @apply font-mono;
+    text-transform: uppercase;
   }
   body {
     @apply bg-background text-foreground;
