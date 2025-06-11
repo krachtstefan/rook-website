@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 
 import { ComponentProps } from "react";
+import { ImageZoom } from "@/components/ui/image-zoom";
 import image1 from "../../assets/images/01.jpg";
 import image2 from "../../assets/images/02.jpg";
 import image3 from "../../assets/images/03.webp";
@@ -59,7 +60,9 @@ export function Gallery() {
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <img {...image} />
+                    <ImageZoom>
+                      <img {...image} />
+                    </ImageZoom>
                   </CardContent>
                 </Card>
               </div>
