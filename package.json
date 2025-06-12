@@ -11,7 +11,10 @@
     "check:lint": "eslint . --ext .cjs,.js,.jsx,.ts,.tsx --max-warnings 0 --report-unused-disable-directives",
     "check:types": "tsc --tsBuildInfoFile .tsbuildinfo --incremental",
     "check:deps": "pnpm install --frozen-lockfile --prefer-offline",
-    "prettier": "prettier . --write"
+    "check:knip": "knip",
+    "fix": "run-p fix:*",
+    "fix:prettier": "prettier . --write",
+    "fix:knip": "knip --fix --allow-remove-files"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.0",
@@ -37,7 +40,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
-    "@types/node": "^22.5.4",
+    "@types/node": "^22.13.15",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
@@ -50,12 +53,13 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-tailwindcss": "^3.18.0",
     "globals": "^16.0.0",
+    "knip": "^5.60.2",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.5.3",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2",
+    "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.0",
     "vite-tsconfig-paths": "^5.1.4"
   }

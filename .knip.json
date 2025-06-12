@@ -1,0 +1,6 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [ "app/client.tsx", "app/ssr.tsx", "app.config.ts" ],
+  "ignore": [ "app/routeTree.gen.ts" ],
+  "ignoreDependencies": [ "eslint-import-resolver-typescript" ]
+}
