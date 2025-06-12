@@ -14,7 +14,7 @@ function Home() {
   return (
     <>
       <Header />
-      <main className="container flex flex-col gap-20 pb-10">
+      <main className="container flex flex-col gap-20 py-10">
         <div className="grid gap-10 md:grid-cols-2">
           <div className="flex flex-col gap-8">
             <h1 className="text-5xl">Meet R∞k Mk2</h1>

@@ -18,7 +18,7 @@ import { navigationLinks } from "./nav-items";
 
 export default function Component() {
   return (
-    <header className="flex h-16 items-center gap-4 border-b px-4 md:px-6">
+    <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <Popover>
         <PopoverTrigger asChild>
           <MobileMenuButton className="md:hidden" />
