@@ -65,9 +65,6 @@ importers:
       vinxi:
         specifier: 0.5.3
         version: 0.5.3(@types/node@22.13.15)(db0@0.3.1)(ioredis@5.6.0)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1)
-      zod:
-        specifier: ^3.25.62
-        version: 3.25.62
     devDependencies:
       '@eslint/js':
         specifier: ^9.23.0
