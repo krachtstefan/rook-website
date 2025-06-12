@@ -1,9 +1,8 @@
 import { BookOpenText, HardDriveDownload } from "lucide-react";
-import { interpolate, useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import { Button } from "@/components/ui/button";
 import { Gallery } from "./-components/gallery";
-import { Logo } from "./-components/logo";
+import Header from "@/components/header/header";
 import { RookComputerMK2 } from "./-components/rook-computer-mk2";
 import { createFileRoute } from "@tanstack/react-router";
 
@@ -12,38 +11,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const scrollProgress = useScrollAnimation({ scrollDistance: 200 });
-  const headerSize = interpolate({
-    from: 100,
-    to: 70,
-    progress: scrollProgress,
-  });
-  const fontSize = interpolate({
-    from: 32,
-    to: 22,
-    progress: scrollProgress,
-  });
-
   return (
     <>
-      <header
-        className="fixed inset-x-0 top-0 z-50 w-full border-b bg-background"
-        style={{ height: `${headerSize}px` }}
-      >
-        <div className="relative mx-auto flex h-full items-center justify-center gap-4 p-4">
-          <Logo className="h-full w-auto fill-primary" />
-          <span
-            className="font-bold text-primary"
-            style={{ fontSize: `${fontSize}px` }}
-          >
-            R∞k Komputer
-          </span>
-        </div>
-      </header>
-      <main
-        className="container flex flex-col gap-20 pb-10"
-        style={{ marginTop: `${headerSize + 40}px` }}
-      >
+      <Header />
+      <main className="container flex flex-col gap-20 pb-10">
         <div className="grid gap-10 md:grid-cols-2">
           <div className="flex flex-col gap-8">
             <h1 className="text-5xl">Meet R∞k Mk2</h1>
