@@ -10,8 +10,8 @@ export default function MobileMenuButton({
   return (
     <Button
       ref={ref}
-      className={cn("group size-8", className)}
-      variant="ghost"
+      className={cn("group size-8 text-foreground", className)}
+      variant="link"
       size="icon"
       {...props}
     >
