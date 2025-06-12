@@ -17,6 +17,8 @@
     "fix:knip": "knip --fix --allow-remove-files"
   },
   "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.2.13",
+    "@radix-ui/react-popover": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.0",
     "@react-three/fiber": "^9.1.1",
     "@tanstack/react-router": "^1.114.29",
