@@ -34,7 +34,17 @@ function Home() {
             </div>
           </div>
         </div>
-        <ConvertKitForm />
+        <div className="flex flex-col gap-4">
+          <h1 className="text-2xl">Newsletter</h1>
+          <p className="text-pretty text-lg font-medium sm:text-xl/8">
+            If you have any questions about RooK: Drop us your mail here:{" "}
+            askmeabout@rook.computer. We do not have any commercial interests
+            and promise to only send interesting and fun stuff your way :)
+          </p>
+          <div className="flex justify-center">
+            <ConvertKitForm />
+          </div>
+        </div>
         {/* <Gallery /> */}
       </main>
     </>
