@@ -24,7 +24,7 @@ function Home() {
   return (
     <>
       <Header />
-      <main className="container flex flex-col gap-20 py-10">
+      <main className="container flex min-h-screen flex-col items-center justify-center gap-20 py-10">
         <div className="grid gap-10 md:grid-cols-2">
           <div className="flex flex-col gap-4">
             <h1 className="text-5xl">Ask me about RooK!</h1>
