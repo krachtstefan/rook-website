@@ -64,10 +64,12 @@ export default function Component() {
           </NavigationMenu>
         </PopoverContent>
       </Popover>
-      <a href="/" className="flex grow items-center gap-2 text-primary">
-        <Logo className="size-16 fill-primary" />
-        <span>R∞k Komputer</span>
-      </a>
+      <div className="grow">
+        <a href="/" className="flex w-max items-center gap-2 text-primary">
+          <Logo className="size-16 fill-primary" />
+          <span>R∞k Komputer</span>
+        </a>
+      </div>
       <NavigationMenu viewport={false} className="max-md:hidden">
         <NavigationMenuList className="gap-2">
           {navigationLinks.map((link, index) => {
