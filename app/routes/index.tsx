@@ -1,10 +1,18 @@
-import { BookOpenText, HardDriveDownload } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
 import { ConvertKitForm } from "./-components/convertkit-form";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Gallery } from "./-components/gallery";
 import Header from "@/components/header/header";
+import { Mails } from "lucide-react";
 import { RookComputerMK2 } from "./-components/rook-computer-mk2";
 import { createFileRoute } from "@tanstack/react-router";
 
@@ -31,14 +39,26 @@ function Home() {
               eternal loading screens.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button>
-                <BookOpenText />
-                Learn more
-              </Button>
-              <Button variant="outline">
-                <HardDriveDownload />
-                Build a R∞k Mk2
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>
+                    <Mails />
+                    Stay in the LooP about RooK!
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="w-full max-w-[700px]">
+                  <DialogHeader>
+                    <DialogTitle>Newsletter</DialogTitle>
+                    <DialogDescription>
+                      If you have any questions about RooK: Drop us your mail
+                      here: askmeabout@rook.computer We do not have any
+                      commercial interests and promise to only send interesting
+                      and fun stuff your way :)
+                    </DialogDescription>
+                  </DialogHeader>
+                  <ConvertKitForm />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
           <div className="relative p-2 max-md:h-[300px]">
@@ -47,7 +67,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <ConvertKitForm />
+
         {/* <Gallery /> */}
       </main>
     </>
