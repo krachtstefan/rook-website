@@ -24,5 +24,5 @@ export function ConvertKitForm() {
     };
   }, []);
 
-  return <div ref={containerRef} className="h-[513px] max-w-[700px]" />;
+  return <div ref={containerRef} className="min-h-[513px] max-w-[700px]" />;
 }

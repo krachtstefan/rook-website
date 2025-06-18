@@ -56,7 +56,9 @@ function Home() {
                       and fun stuff your way :)
                     </DialogDescription>
                   </DialogHeader>
-                  <ConvertKitForm />
+                  <div className="max-sm:h-[420px] max-sm:overflow-y-auto">
+                    <ConvertKitForm />
+                  </div>
                 </DialogContent>
               </Dialog>
             </div>
