@@ -20,9 +20,11 @@ export default function Component() {
   return (
     <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <Popover>
-        <PopoverTrigger asChild>
-          <MobileMenuButton className="md:hidden" />
-        </PopoverTrigger>
+        {!!navigationLinks.length && (
+          <PopoverTrigger asChild>
+            <MobileMenuButton className="md:hidden" />
+          </PopoverTrigger>
+        )}
         <PopoverContent align="start" className="w-64 p-1 md:hidden">
           <NavigationMenu className="max-w-none *:w-full">
             <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
