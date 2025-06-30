@@ -2,7 +2,7 @@ import { ConvertKitForm } from "./-components/convertkit-form";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Gallery } from "./-components/gallery";
 import Header from "@/components/header/header";
-import { RookComputerMK2 } from "./-components/rook-computer-mk2";
+import { RookComputerMK2 } from "./-components/3d/rook-computer-mk2";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
