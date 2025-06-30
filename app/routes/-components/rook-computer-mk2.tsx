@@ -5,6 +5,12 @@ import { Suspense, useEffect, useRef } from "react";
 
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 
+const LoadingSpinner = () => (
+  <div className="flex size-full items-center justify-center">
+    <div className="size-4 animate-spin rounded-full border border-border border-t-transparent" />
+  </div>
+);
+
 const SpinningModel = () => {
   const obj = useLoader(OBJLoader, "/rook-computer-mk2.obj");
   const pivot = useRef(new THREE.Group());
@@ -32,7 +38,7 @@ const SpinningModel = () => {
     pivot.current.add(model.current);
   }, [obj]);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     pivot.current.rotation.y += delta * 0.2; // Rotate 0.2 radians per second
   });
 
@@ -41,7 +47,7 @@ const SpinningModel = () => {
 
 export function RookComputerMK2() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<LoadingSpinner />}>
       <Canvas
         camera={{ position: [-50, 50, 50], fov: 50, zoom: 2 }}
         orthographic
