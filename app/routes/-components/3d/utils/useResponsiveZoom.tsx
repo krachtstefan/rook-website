@@ -9,24 +9,29 @@ const BREAKPOINT_ZOOM_CONFIG = {
   1536: 2.4, // 2xl
 };
 
+const smallestBreakpoint: keyof typeof BREAKPOINT_ZOOM_CONFIG = 0;
+const zoomForSmallestBreakpoint = BREAKPOINT_ZOOM_CONFIG[smallestBreakpoint];
+
+// sort breakpoints to ascending order
+const sortedBreakpoints = Object.keys(BREAKPOINT_ZOOM_CONFIG)
+  .map(Number)
+  .sort((a, b) => a - b);
+
 export const useResponsiveZoom = () => {
-  const [zoom, setZoom] = useState(BREAKPOINT_ZOOM_CONFIG[0]);
+  const [zoom, setZoom] = useState(zoomForSmallestBreakpoint);
 
   useEffect(() => {
     const updateZoom = () => {
       const width = window.innerWidth;
-      let currentZoom = BREAKPOINT_ZOOM_CONFIG[0];
-
-      // check breakpoints in ascending order
-      for (const [breakpoint, zoomValue] of Object.entries(
-        BREAKPOINT_ZOOM_CONFIG
-      )) {
-        const minWidth = parseInt(breakpoint);
-        if (width >= minWidth) {
-          currentZoom = zoomValue;
+      let currentZoom = zoomForSmallestBreakpoint;
+      for (const breakpoint of sortedBreakpoints) {
+        if (width >= breakpoint) {
+          currentZoom =
+            BREAKPOINT_ZOOM_CONFIG[
+              breakpoint as keyof typeof BREAKPOINT_ZOOM_CONFIG
+            ];
         }
       }
-
       setZoom(currentZoom);
     };
 
