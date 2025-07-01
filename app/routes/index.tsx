@@ -181,10 +181,11 @@ function Home() {
             >
               kicad.org
             </a>{" "}
-            to never ordered one. He wanted to learn this because it would give
-            him a much larger inventory of chips for his own projects. The only
-            problem: he lacked a concrete project. So, like any good engineer,
-            he went looking for a problem to solve with his newfound knowledge.
+            to design them but had never ordered one. He wanted to learn this
+            because it would give him a much larger inventory of chips for his
+            own projects. The only problem: he lacked a concrete project. So,
+            like any good engineer, he went looking for a problem to solve with
+            his newfound knowledge.
           </SectionParagraph>
 
           <SectionParagraph>
