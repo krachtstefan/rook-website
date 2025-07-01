@@ -47,7 +47,7 @@ function Home() {
   return (
     <>
       <Header />
-      <main className="container flex flex-col items-center gap-20 py-10">
+      <main className="container flex flex-col items-center gap-10 pt-10">
         <div className="grid gap-10 md:grid-cols-2">
           <SectionContainer>
             <h1 className="text-5xl uppercase">Ask me about RooK!</h1>
