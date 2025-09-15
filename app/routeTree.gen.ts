@@ -11,9 +11,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as AnimationImport } from './routes/animation'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const AnimationRoute = AnimationImport.update({
+  id: '/animation',
+  path: '/animation',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -32,6 +39,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/animation': {
+      id: '/animation'
+      path: '/animation'
+      fullPath: '/animation'
+      preLoaderRoute: typeof AnimationImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +53,37 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/animation': typeof AnimationRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/animation': typeof AnimationRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/animation': typeof AnimationRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/animation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/animation'
+  id: '__root__' | '/' | '/animation'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnimationRoute: typeof AnimationRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnimationRoute: AnimationRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/animation"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/animation": {
+      "filePath": "animation.tsx"
     }
   }
 }
