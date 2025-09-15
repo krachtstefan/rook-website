@@ -8,7 +8,7 @@ export const Route = createFileRoute("/animation")({
 function RouteComponent() {
   return (
     <main className="h-screen w-screen">
-      <RookComputer />
+      <RookComputer enableZoom />
     </main>
   );
 }
