@@ -2,7 +2,7 @@ import { Gallery, ImageProps } from "./-components/gallery";
 
 import { ConvertKitForm } from "./-components/convertkit-form";
 import Header from "@/components/header/header";
-import { RookComputerMK2 } from "./-components/3d/rook-computer-mk2";
+import { RookComputer } from "./-components/3d/rook-computer";
 import SectionContainer from "@/components/section-container";
 import SectionHeading from "@/components/section-heading";
 import SectionParagraph from "@/components/section-paragraph";
@@ -66,7 +66,7 @@ function Home() {
           </SectionContainer>
           <div className="relative p-2 max-md:h-[300px]">
             <div className="absolute inset-0">
-              <RookComputerMK2 />
+              <RookComputer />
             </div>
           </div>
         </div>

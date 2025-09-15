@@ -7,7 +7,7 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { useReducedMotion } from "./utils/useReducedMotion";
 
 export const SpinningModel = () => {
-  const obj = useLoader(OBJLoader, "/rook-computer-mk2.obj");
+  const obj = useLoader(OBJLoader, "/rook-computer.obj");
   const pivot = useRef(new THREE.Group());
   const model = useRef(new THREE.Group());
   const prefersReducedMotion = useReducedMotion();
@@ -15,8 +15,8 @@ export const SpinningModel = () => {
   useEffect(() => {
     obj.traverse((child) => {
       if (child instanceof THREE.Mesh) {
-        // Using a threshold angle of 15 degrees to only show more significant edges
-        const edges = new THREE.EdgesGeometry(child.geometry, 15);
+        // Using a threshold angle of 30 degrees to only show more significant edges
+        const edges = new THREE.EdgesGeometry(child.geometry, 30);
         const line = new THREE.LineSegments(
           edges,
           new THREE.LineBasicMaterial({ color: "black" })
