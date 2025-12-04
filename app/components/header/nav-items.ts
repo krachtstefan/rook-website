@@ -1,7 +1,8 @@
+import type { LinkOptions } from "@tanstack/react-router";
+
 type Link = {
   label: string;
-  href: string;
-};
+} & LinkOptions;
 
 type MenuLink = Link & {
   type: "link";
@@ -16,8 +17,8 @@ type MenuWithSubmenuLink = {
 type NavigationLink = MenuLink | MenuWithSubmenuLink;
 
 export const navigationLinks: Array<NavigationLink> = [
-  { type: "link", label: "Home", href: "/" },
-  { type: "link", label: "Blog", href: "/blog" },
+  { type: "link", label: "Home", to: "/" },
+  { type: "link", label: "Blog", to: "/blog" },
   // {
   //   label: "Features",
   //   type: "submenu",

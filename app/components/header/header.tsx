@@ -42,16 +42,13 @@ export default function Component() {
                         <ul>
                           {link.items.map((item, itemIndex) => (
                             <li key={itemIndex}>
-                              <NavMenuLink
-                                href={item.href}
-                                label={item.label}
-                              />
+                              <NavMenuLink to={item.to} label={item.label} />
                             </li>
                           ))}
                         </ul>
                       </>
                     ) : (
-                      <NavMenuLink href={link.href} label={link.label} />
+                      <NavMenuLink to={link.to} label={link.label} />
                     )}
                     {!isLastItem && (
                       <div
@@ -88,7 +85,7 @@ export default function Component() {
                       <ul className="min-w-48">
                         {link.items.map((item, itemIndex) => (
                           <li key={itemIndex}>
-                            <NavMenuLink href={item.href} label={item.label} />
+                            <NavMenuLink to={item.to} label={item.label} />
                           </li>
                         ))}
                       </ul>
@@ -96,7 +93,7 @@ export default function Component() {
                   </>
                 ) : (
                   <NavMenuLink
-                    href={link.href}
+                    to={link.to}
                     className="py-1.5"
                     label={link.label}
                   />
