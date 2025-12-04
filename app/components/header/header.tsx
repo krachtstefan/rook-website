@@ -11,6 +11,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+import { Link } from "@tanstack/react-router";
 import { Logo } from "./logo";
 import MobileMenuButton from "./mobile-menu-btn";
 import { NavMenuLink } from "./nav-menu-link";
@@ -67,10 +68,10 @@ export default function Component() {
         </PopoverContent>
       </Popover>
       <div className="grow">
-        <a href="/" className="flex w-max items-center gap-2 text-primary">
+        <Link to="/" className="flex w-max items-center gap-2 text-primary">
           <Logo className="size-16 fill-primary" />
           <span className="uppercase">R∞k Komputer</span>
-        </a>
+        </Link>
       </div>
       <NavigationMenu viewport={false} className="max-md:hidden">
         <NavigationMenuList className="gap-2">
