@@ -16,7 +16,8 @@ type MenuWithSubmenuLink = {
 type NavigationLink = MenuLink | MenuWithSubmenuLink;
 
 export const navigationLinks: Array<NavigationLink> = [
-  // { type: "link", label: "Home", href: "#" },
+  { type: "link", label: "Home", href: "/" },
+  { type: "link", label: "Blog", href: "/blog" },
   // {
   //   label: "Features",
   //   type: "submenu",
