@@ -12,7 +12,6 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as BlogImport } from './routes/blog'
-import { Route as AnimationImport } from './routes/animation'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -20,12 +19,6 @@ import { Route as IndexImport } from './routes/index'
 const BlogRoute = BlogImport.update({
   id: '/blog',
   path: '/blog',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AnimationRoute = AnimationImport.update({
-  id: '/animation',
-  path: '/animation',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,13 +39,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/animation': {
-      id: '/animation'
-      path: '/animation'
-      fullPath: '/animation'
-      preLoaderRoute: typeof AnimationImport
-      parentRoute: typeof rootRoute
-    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -67,41 +53,36 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/animation': typeof AnimationRoute
   '/blog': typeof BlogRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/animation': typeof AnimationRoute
   '/blog': typeof BlogRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/animation': typeof AnimationRoute
   '/blog': typeof BlogRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/animation' | '/blog'
+  fullPaths: '/' | '/blog'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/animation' | '/blog'
-  id: '__root__' | '/' | '/animation' | '/blog'
+  to: '/' | '/blog'
+  id: '__root__' | '/' | '/blog'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AnimationRoute: typeof AnimationRoute
   BlogRoute: typeof BlogRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AnimationRoute: AnimationRoute,
   BlogRoute: BlogRoute,
 }
 
@@ -116,15 +97,11 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/animation",
         "/blog"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/animation": {
-      "filePath": "animation.tsx"
     },
     "/blog": {
       "filePath": "blog.tsx"
