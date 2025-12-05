@@ -1,8 +1,8 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { Link, createFileRoute } from "@tanstack/react-router";
 
 import Layout from "@/components/layout";
-import { createFileRoute } from "@tanstack/react-router";
 import { postsQueryOptions } from "@/api/posts";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/blog/")({
   loader: ({ context: { queryClient } }) =>
@@ -16,10 +16,14 @@ function RouteComponent() {
 
   return (
     <Layout>
-      <div>Hello &quot;/blog&quot;!</div>
+      <h1>Blog</h1>
       <ul className="list-disc pl-4">
         {posts.map((post) => (
-          <li key={post.id}>{post.title.rendered}</li>
+          <li key={post.id}>
+            <Link to="/blog/$id" params={{ id: post.slug }}>
+              {post.title.rendered}
+            </Link>
+          </li>
         ))}
       </ul>
     </Layout>
