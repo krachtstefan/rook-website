@@ -1,5 +1,6 @@
 import { Zodios, makeApi } from "@zodios/core";
 import { z } from "zod";
+import { env } from "../env";
 
 const PostSchema = z.object({
   userId: z.number(),
@@ -20,7 +21,7 @@ const apiDefinition = makeApi([
   },
 ]);
 
-const baseUrl = "https://jsonplaceholder.typicode.com";
+const baseUrl = env.VITE_API_BASE_URL;
 
 export const apiClient = new Zodios(baseUrl, apiDefinition);
 

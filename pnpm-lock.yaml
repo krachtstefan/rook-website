@@ -23,6 +23,9 @@ importers:
       '@react-three/fiber':
         specifier: ^9.1.1
         version: 9.1.1(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)
+      '@t3-oss/env-core':
+        specifier: ^0.13.8
+        version: 0.13.8(typescript@5.8.2)(zod@3.25.62)
       '@tanstack/react-query':
         specifier: ^5.90.12
         version: 5.90.12(react@19.1.0)
@@ -1530,6 +1533,23 @@ packages:
 
   '@speed-highlight/core@1.2.7':
     resolution: {integrity: sha512-0dxmVj4gxg3Jg879kvFS/msl4s9F3T9UXC1InxgOf7t5NvcPD97u/WTA5vL/IxWHMn7qSxBozqrnnE2wvl1m8g==}
+
+  '@t3-oss/env-core@0.13.8':
+    resolution: {integrity: sha512-L1inmpzLQyYu4+Q1DyrXsGJYCXbtXjC4cICw1uAKv0ppYPQv656lhZPU91Qd1VS6SO/bou1/q5ufVzBGbNsUpw==}
+    peerDependencies:
+      arktype: ^2.1.0
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
+    peerDependenciesMeta:
+      arktype:
+        optional: true
+      typescript:
+        optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
 
   '@tanstack/directive-functions-plugin@1.114.30':
     resolution: {integrity: sha512-y0ed1ITnIVwvYM9UMJWDl5VHll8pz/4fSMSYKCoRVzKdOp8p4nXegdg0kYc1QaBKbd/5J97utjAYV/jHdvg7PQ==}
@@ -6051,6 +6071,11 @@ snapshots:
   '@sindresorhus/merge-streams@2.3.0': {}
 
   '@speed-highlight/core@1.2.7': {}
+
+  '@t3-oss/env-core@0.13.8(typescript@5.8.2)(zod@3.25.62)':
+    optionalDependencies:
+      typescript: 5.8.2
+      zod: 3.25.62
 
   '@tanstack/directive-functions-plugin@1.114.30(@types/node@22.13.15)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1)':
     dependencies:
