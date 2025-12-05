@@ -26,6 +26,8 @@
     "@tanstack/react-router": "^1.114.29",
     "@tanstack/react-start": "^1.114.31",
     "@types/three": "^0.175.0",
+    "@zodios/core": "^10.9.6",
+    "@zodios/react": "^10.4.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
@@ -37,7 +39,8 @@
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.175.0",
-    "vinxi": "0.5.3"
+    "vinxi": "0.5.3",
+    "zod": "^3.25.62"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
