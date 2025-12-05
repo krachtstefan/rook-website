@@ -23,6 +23,9 @@ importers:
       '@react-three/fiber':
         specifier: ^9.1.1
         version: 9.1.1(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)
+      '@tanstack/react-query':
+        specifier: ^5.90.12
+        version: 5.90.12(react@19.1.0)
       '@tanstack/react-router':
         specifier: ^1.114.29
         version: 1.114.29(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1526,6 +1529,14 @@ packages:
   '@tanstack/history@1.114.29':
     resolution: {integrity: sha512-OTRMhwidScQSA0xsc5OCtm3K/oAChe47jy1e4OY3VpXUnKrI7C8iwfQ9XDRdpdsRASH2xi6P5I0+7ksFBehaQQ==}
     engines: {node: '>=12'}
+
+  '@tanstack/query-core@5.90.12':
+    resolution: {integrity: sha512-T1/8t5DhV/SisWjDnaiU2drl6ySvsHj1bHBCWNXd+/T+Hh1cf6JodyEYMd5sgwm+b/mETT4EV3H+zCVczCU5hg==}
+
+  '@tanstack/react-query@5.90.12':
+    resolution: {integrity: sha512-graRZspg7EoEaw0a8faiUASCyJrqjKPdqJ9EwuDRUF9mEYJ1YPczI9H+/agJ0mOJkPCJDk0lsz5QTrLZ/jQ2rg==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tanstack/react-router@1.114.29':
     resolution: {integrity: sha512-5nNWQoVKP+HIuhIZImSwid5pdSFE/Ge8XEX068U/1SaivEX4of0DCyOh1qKsswelmBVvqHFmtY6/GN/8dVLrHw==}
@@ -6020,6 +6031,13 @@ snapshots:
       - yaml
 
   '@tanstack/history@1.114.29': {}
+
+  '@tanstack/query-core@5.90.12': {}
+
+  '@tanstack/react-query@5.90.12(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.90.12
+      react: 19.1.0
 
   '@tanstack/react-router@1.114.29(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
