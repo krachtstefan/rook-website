@@ -1,6 +1,7 @@
 import { Zodios, makeApi } from "@zodios/core";
-import { z } from "zod";
+
 import { env } from "../env";
+import { z } from "zod";
 
 const PostSchema = z.object({
   userId: z.number(),
@@ -14,7 +15,7 @@ export type Post = z.infer<typeof PostSchema>;
 const apiDefinition = makeApi([
   {
     method: "get",
-    path: "/posts",
+    path: "/wp-json/wp/v2/posts",
     alias: "getPosts",
     description: "Get all posts",
     response: z.array(PostSchema),
