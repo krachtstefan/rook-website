@@ -1,5 +1,6 @@
-import { PostSchema } from "./schemas";
 import { Zodios, makeApi } from "@zodios/core";
+
+import { PostSchema } from "./schemas";
 import { env } from "../env";
 import { z } from "zod";
 
@@ -11,6 +12,13 @@ const apiDefinition = makeApi([
     path: "/wp-json/wp/v2/posts",
     alias: "getPosts",
     description: "Get all posts",
+    response: z.array(PostSchema),
+  },
+  {
+    method: "get",
+    path: "/wp-json/wp/v2/posts?slug=:slug",
+    alias: "getPostBySlug",
+    description: "Get post by slug",
     response: z.array(PostSchema),
   },
 ]);

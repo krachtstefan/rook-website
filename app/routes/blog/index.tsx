@@ -1,17 +1,17 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import Layout from "@/components/layout";
-import { postsQueryOptions } from "@/api/posts";
+import { postListOptions } from "@/api/posts";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/blog/")({
   loader: ({ context: { queryClient } }) =>
-    queryClient.ensureQueryData(postsQueryOptions),
+    queryClient.ensureQueryData(postListOptions),
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const postsQuery = useSuspenseQuery(postsQueryOptions);
+  const postsQuery = useSuspenseQuery(postListOptions);
   const posts = postsQuery.data;
 
   return (
@@ -20,7 +20,7 @@ function RouteComponent() {
       <ul className="list-disc pl-4">
         {posts.map((post) => (
           <li key={post.id}>
-            <Link to="/blog/$id" params={{ id: post.slug }}>
+            <Link to="/blog/$slug" params={{ slug: post.slug }}>
               {post.title.rendered}
             </Link>
           </li>

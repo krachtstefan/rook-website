@@ -1,7 +1,13 @@
-import { queryOptions } from "@tanstack/react-query";
 import { apiClient } from "./client";
+import { queryOptions } from "@tanstack/react-query";
 
-export const postsQueryOptions = queryOptions({
+export const postListOptions = queryOptions({
   queryKey: ["posts"],
   queryFn: () => apiClient.getPosts(),
 });
+
+export const postOptions = (slug: string) =>
+  queryOptions({
+    queryKey: ["posts"],
+    queryFn: () => apiClient.getPostBySlug({ params: { slug } }),
+  });
