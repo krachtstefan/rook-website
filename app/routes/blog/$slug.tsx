@@ -1,5 +1,8 @@
+import { Link, createFileRoute } from "@tanstack/react-router";
+
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout";
-import { createFileRoute } from "@tanstack/react-router";
 import { postOptions } from "@/api/posts";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
@@ -20,6 +23,14 @@ function RouteComponent() {
 
   return (
     <Layout>
+      <div className="flex w-full justify-start">
+        <Button asChild variant="outline">
+          <Link to="/blog">
+            <ArrowLeft className="mr-2 size-4" />
+            Back to Blog
+          </Link>
+        </Button>
+      </div>
       <h1>{post.title.rendered}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
     </Layout>
