@@ -8,9 +8,7 @@ export function createRouter() {
   const router = createTanStackRouter({
     routeTree,
     scrollRestoration: true,
-    context: {
-      queryClient,
-    },
+    context: { queryClient },
   });
 
   return router;
