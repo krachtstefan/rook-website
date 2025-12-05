@@ -10,4 +10,7 @@ export const postOptions = (slug: string) =>
   queryOptions({
     queryKey: ["posts"],
     queryFn: () => apiClient.getPostBySlug({ params: { slug } }),
+    select(data) {
+      return data.at(0);
+    },
   });
