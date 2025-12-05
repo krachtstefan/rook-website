@@ -34,6 +34,17 @@ export const PostSchema = z.object({
   meta: z.any(),
   categories: z.array(z.number()),
   tags: z.array(z.number()),
+  _embedded: z
+    .object({
+      "wp:featuredmedia": z
+        .array(
+          z.object({
+            source_url: z.string(),
+          })
+        )
+        .optional(),
+    })
+    .optional(),
 });
 
 export type Post = z.infer<typeof PostSchema>;

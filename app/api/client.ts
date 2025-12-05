@@ -9,7 +9,7 @@ export * from "./schemas";
 const apiDefinition = makeApi([
   {
     method: "get",
-    path: "/wp-json/wp/v2/posts",
+    path: "/wp-json/wp/v2/posts?_embed",
     alias: "getPosts",
     description: "Get all posts",
     response: z.array(PostSchema),
