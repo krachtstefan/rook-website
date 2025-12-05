@@ -4,7 +4,7 @@ import Layout from "@/components/layout";
 import { createFileRoute } from "@tanstack/react-router";
 import { postsQueryOptions } from "@/api/posts";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   loader: ({ context: { queryClient } }) =>
     queryClient.ensureQueryData(postsQueryOptions),
   component: RouteComponent,
