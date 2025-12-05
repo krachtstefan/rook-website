@@ -41,9 +41,6 @@ importers:
       '@zodios/core':
         specifier: ^10.9.6
         version: 10.9.6(axios@1.13.2)(zod@3.25.62)
-      '@zodios/react':
-        specifier: ^10.4.5
-        version: 10.4.5(@tanstack/react-query@5.90.12(react@19.1.0))(@zodios/core@10.9.6(axios@1.13.2)(zod@3.25.62))(react@19.1.0)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -1939,13 +1936,6 @@ packages:
     peerDependencies:
       axios: ^0.x || ^1.0.0
       zod: ^3.x
-
-  '@zodios/react@10.4.5':
-    resolution: {integrity: sha512-2jisuquf30bEQg6KzhtYnoutXEQD9uD/I0vBO3d3AzL91SLhFTeHNSk2MwkBj0LL/wCIWt9v0sUL52OMv++EwQ==}
-    peerDependencies:
-      '@tanstack/react-query': 4.x
-      '@zodios/core': '>=10.2.0 <11.0.0'
-      react: '>=16.8.0'
 
   abbrev@3.0.0:
     resolution: {integrity: sha512-+/kfrslGQ7TNV2ecmQwMJj/B65g5KVq1/L3SGVZ3tCYGqlzFuFCGBZJtMP99wH3NpEUyAjn0zPdPUg0D+DwrOA==}
@@ -6891,12 +6881,6 @@ snapshots:
     dependencies:
       axios: 1.13.2
       zod: 3.25.62
-
-  '@zodios/react@10.4.5(@tanstack/react-query@5.90.12(react@19.1.0))(@zodios/core@10.9.6(axios@1.13.2)(zod@3.25.62))(react@19.1.0)':
-    dependencies:
-      '@tanstack/react-query': 5.90.12(react@19.1.0)
-      '@zodios/core': 10.9.6(axios@1.13.2)(zod@3.25.62)
-      react: 19.1.0
 
   abbrev@3.0.0: {}
 

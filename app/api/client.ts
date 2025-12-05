@@ -26,5 +26,3 @@ const apiDefinition = makeApi([
 const baseUrl = env.VITE_API_BASE_URL;
 
 export const apiClient = new Zodios(baseUrl, apiDefinition);
-
-export type ApiClient = typeof apiClient;

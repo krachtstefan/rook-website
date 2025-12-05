@@ -46,5 +46,3 @@ export const PostSchema = z.object({
     })
     .optional(),
 });
-
-export type Post = z.infer<typeof PostSchema>;
