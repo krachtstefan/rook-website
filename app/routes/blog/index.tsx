@@ -16,7 +16,7 @@ function RouteComponent() {
 
   return (
     <Layout>
-      <h1>Blog</h1>
+      <h1 className="text-5xl uppercase">Blog</h1>
       <ul className="list-disc pl-4">
         {posts.map((post) => (
           <li key={post.id}>
