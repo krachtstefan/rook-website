@@ -19,7 +19,7 @@ function RouteComponent() {
       <div>Hello &quot;/blog&quot;!</div>
       <ul className="list-disc pl-4">
         {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
+          <li key={post.id}>{post.title.rendered}</li>
         ))}
       </ul>
     </Layout>
