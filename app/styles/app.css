@@ -59,7 +59,7 @@
 @font-face {
   font-family: "Berkeley Mono";
   font-display: swap;
-  src: url("../assets/fonts/BerkeleyMonoTrial-Regular.otf");
+  src: url("../assets/fonts/BerkeleyMono-Regular.woff2");
 }
 
 @layer base {
