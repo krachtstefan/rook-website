@@ -68,7 +68,7 @@ export default function Component() {
       </Popover>
       <div className="grow">
         <a href="/" className="flex w-max items-center gap-2 text-primary">
-          <Logo className="size-16 fill-primary" />
+          <Logo className="h-[42px]" />
           <span className="uppercase">R∞k Komputer</span>
         </a>
       </div>
