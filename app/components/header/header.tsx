@@ -69,7 +69,7 @@ export default function Component() {
       <div className="grow">
         <a href="/" className="flex w-max items-center gap-2 text-primary">
           <Logo className="h-[42px]" />
-          <span className="whitespace-nowrap uppercase">R∞k Komputer</span>
+          <span className="whitespace-nowrap uppercase">Retro ∞ Konsole</span>
         </a>
       </div>
       <NavigationMenu viewport={false} className="max-md:hidden">
