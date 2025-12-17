@@ -66,8 +66,8 @@ export default function Component() {
       </Popover>
       <div className="grow">
         <Link to="/" className="flex w-max items-center gap-2 text-primary">
-          <Logo className="size-16 fill-primary" />
-          <span className="uppercase">R∞k Komputer</span>
+          <Logo className="h-[42px]" />
+          <span className="whitespace-nowrap uppercase">Retro ∞ Konsole</span>
         </Link>
       </div>
       <NavigationMenu viewport={false} className="max-md:hidden">
