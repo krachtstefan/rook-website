@@ -19,7 +19,7 @@ import { navigationLinks } from "./nav-items";
 
 export default function Component() {
   return (
-    <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+    <header className="sticky top-0 z-50 flex h-16 items-center gap-0 border-b bg-background px-4 md:px-6">
       <Popover>
         {!!navigationLinks.length && (
           <PopoverTrigger asChild>
@@ -64,7 +64,7 @@ export default function Component() {
           </NavigationMenu>
         </PopoverContent>
       </Popover>
-      <div className="grow">
+      <div className="flex grow justify-center md:justify-start">
         <Link to="/" className="flex w-max items-center gap-2 text-primary">
           <Logo className="h-[42px]" />
           <span className="whitespace-nowrap uppercase">Retro ∞ Konsole</span>
