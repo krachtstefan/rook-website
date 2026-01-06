@@ -8,7 +8,7 @@ export const postListOptions = queryOptions({
 
 export const postOptions = (slug: string) =>
   queryOptions({
-    queryKey: ["posts"],
+    queryKey: ["post", slug],
     queryFn: () => apiClient.getPostBySlug({ params: { slug } }),
     select(data) {
       return data.at(0);
