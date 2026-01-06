@@ -1,6 +1,7 @@
 import { Gallery, ImageProps } from "./-components/gallery";
 
 import { ConvertKitForm } from "./-components/convertkit-form";
+import { ErrorBoundary } from "react-error-boundary";
 import Layout from "@/components/layout";
 import { RookComputer } from "./-components/3d/rook-computer";
 import SectionContainer from "@/components/section-container";
@@ -58,11 +59,13 @@ function Home() {
           convenience – without the annoying hum of an old CRT or the eternal
           loading screens.
         </SectionParagraph>
-        <div className="relative h-[400px] p-2">
-          <div className="absolute inset-0">
-            <RookComputer />
+        <ErrorBoundary fallback={null}>
+          <div className="relative h-[400px] p-2">
+            <div className="absolute inset-0">
+              <RookComputer />
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
       </SectionContainer>
 
       <SectionContainer>
