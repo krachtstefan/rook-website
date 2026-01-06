@@ -59,7 +59,7 @@ function RouteComponent() {
                 </CardHeader>
                 <CardContent>
                   <div
-                    className="line-clamp-3 text-sm text-muted-foreground"
+                    className="text-sm text-muted-foreground"
                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                   />
                 </CardContent>
