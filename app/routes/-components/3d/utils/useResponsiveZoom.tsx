@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 
 const BREAKPOINT_ZOOM_CONFIG = {
-  0: 1.4, // default
-  640: 1.8, // sm
-  768: 1.4, // md
-  1024: 2, // lg
-  1280: 2.4, // xl
-  1536: 2.4, // 2xl
+  0: 1.5,
+  580: 2.3,
 };
 
 const smallestBreakpoint: keyof typeof BREAKPOINT_ZOOM_CONFIG = 0;

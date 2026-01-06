@@ -46,28 +46,24 @@ const sketchImages: ImageProps[] = [
 function Home() {
   return (
     <Layout>
-      <div className="grid gap-10 md:grid-cols-2">
-        <SectionContainer>
-          <h1 className="text-5xl uppercase">Ask me about RooK!</h1>
-          <SectionHeading>
-            The Kids-Friendly Retro Gaming Console
-          </SectionHeading>
-          <SectionParagraph>
-            RooK is a DIY console built by a few nerds, retro gaming fans and
-            parents in Germany. It was important to us to have a retro gaming
-            device for which we could design and 3D print our own cases, that
-            our kids could easily use, and that would be suitable for retro
-            tournaments. Think of it as the ultimate blend of nostalgia and
-            modern convenience – without the annoying hum of an old CRT or the
-            eternal loading screens.
-          </SectionParagraph>
-        </SectionContainer>
-        <div className="relative p-2 max-md:h-[300px]">
+      <SectionContainer>
+        <h1 className="text-5xl uppercase">Ask me about RooK!</h1>
+        <SectionHeading>The Kids-Friendly Retro Gaming Console</SectionHeading>
+        <SectionParagraph>
+          RooK is a DIY console built by a few nerds, retro gaming fans and
+          parents in Germany. It was important to us to have a retro gaming
+          device for which we could design and 3D print our own cases, that our
+          kids could easily use, and that would be suitable for retro
+          tournaments. Think of it as the ultimate blend of nostalgia and modern
+          convenience – without the annoying hum of an old CRT or the eternal
+          loading screens.
+        </SectionParagraph>
+        <div className="relative h-[400px] p-2">
           <div className="absolute inset-0">
             <RookComputer />
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
       <SectionContainer>
         <SectionHeading>Newsletter</SectionHeading>
