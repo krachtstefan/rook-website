@@ -1,0 +1,46 @@
+@layer components {
+  .wordpress-container {
+    /* Paragraphs */
+    & p {
+      @apply mb-4;
+    }
+
+    & p:last-child {
+      @apply mb-0;
+    }
+
+    /* Links */
+    & a {
+      @apply underline underline-offset-2 transition-colors hover:text-primary;
+    }
+
+    /* Lists */
+    & ul,
+    & ol {
+      @apply mb-4 ml-6 space-y-2;
+    }
+
+    & ul {
+      @apply list-disc;
+    }
+
+    & ol {
+      @apply list-decimal;
+    }
+
+    & li {
+      @apply leading-relaxed;
+    }
+
+    /* Nested lists */
+    & ul ul,
+    & ol ul {
+      @apply mb-0 mt-2;
+    }
+
+    & ul ol,
+    & ol ol {
+      @apply mb-0 mt-2;
+    }
+  }
+}
