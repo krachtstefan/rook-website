@@ -42,5 +42,9 @@
     & ol ol {
       @apply mb-0 mt-2;
     }
+
+    & blockquote {
+      @apply my-4 border-l-4 border-border pl-4 italic text-muted-foreground;
+    }
   }
 }
