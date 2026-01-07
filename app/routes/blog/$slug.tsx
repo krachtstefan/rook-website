@@ -31,7 +31,10 @@ function RouteComponent() {
           </Link>
         </Button>
       </div>
-      <h1 className="text-5xl uppercase">{post.title.rendered}</h1>
+      <h1
+        className="text-5xl uppercase"
+        dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+      />
       <div
         dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         className="wordpress-container"
