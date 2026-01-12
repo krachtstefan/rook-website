@@ -50,5 +50,9 @@
     & figure {
       @apply mb-4;
     }
+
+    & figure.size-full {
+      @apply flex justify-center;
+    }
   }
 }
