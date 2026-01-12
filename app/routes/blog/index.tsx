@@ -24,7 +24,7 @@ function RouteComponent() {
   return (
     <Layout>
       <h1 className="mb-8 text-5xl uppercase">Blog</h1>
-      <div className="grid w-full gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full gap-8 md:grid-cols-2">
         {posts.map((post) => {
           const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
           return (
