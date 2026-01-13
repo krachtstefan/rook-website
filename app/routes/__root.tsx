@@ -42,6 +42,7 @@ export const Route = createRootRouteWithContext<{
   }),
   component: RootComponent,
   errorComponent: RootErrorComponent,
+  notFoundComponent: RootNotFoundComponent,
 });
 
 function RootComponent() {
@@ -81,5 +82,16 @@ function RootErrorComponent({ error }: { error: Error }) {
         />
       </ErrorPageContainer>
     </RootDocument>
+  );
+}
+
+function RootNotFoundComponent() {
+  return (
+    <ErrorPage
+      title="Page not found"
+      description="The page you're looking for doesn't exist."
+      to="/"
+      linkText="Go to Homepage"
+    />
   );
 }
