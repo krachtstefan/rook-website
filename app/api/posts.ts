@@ -1,10 +1,15 @@
-import { apiClient } from "./client";
+import { apiClient, getPaginatedPosts } from "./client";
+
 import { queryOptions } from "@tanstack/react-query";
 
-export const postListOptions = queryOptions({
-  queryKey: ["posts"],
-  queryFn: () => apiClient.getPosts(),
-});
+export const paginatedPostListOptions = (
+  page: number = 1,
+  perPage: number = 10
+) =>
+  queryOptions({
+    queryKey: ["posts", page, perPage],
+    queryFn: () => getPaginatedPosts(page, perPage),
+  });
 
 export const postOptions = (slug: string) =>
   queryOptions({

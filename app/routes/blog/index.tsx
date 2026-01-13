@@ -7,19 +7,31 @@ import {
 } from "@/components/ui/card";
 import { Link, createFileRoute } from "@tanstack/react-router";
 
+import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout";
-import { postListOptions } from "@/api/posts";
+import { paginatedPostListOptions } from "@/api/posts";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { z } from "zod";
+
+const blogSearchSchema = z.object({
+  page: z.number().int().positive().catch(1),
+});
 
 export const Route = createFileRoute("/blog/")({
-  loader: ({ context: { queryClient } }) =>
-    queryClient.ensureQueryData(postListOptions),
+  validateSearch: blogSearchSchema,
+  loaderDeps: ({ search: { page } }) => ({ page }),
+  loader: ({ context: { queryClient }, deps: { page } }) =>
+    queryClient.ensureQueryData(paginatedPostListOptions(page)),
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const postsQuery = useSuspenseQuery(postListOptions);
-  const posts = postsQuery.data;
+  const { page } = Route.useSearch();
+  const postsQuery = useSuspenseQuery(paginatedPostListOptions(page));
+  const { posts, totalPages } = postsQuery.data;
+
+  const hasPrev = page > 1;
+  const hasNext = page < totalPages;
 
   return (
     <Layout>
@@ -67,6 +79,22 @@ function RouteComponent() {
             </Link>
           );
         })}
+      </div>
+
+      <div className="mt-8 flex items-center justify-between">
+        <Link to="/blog" search={{ page: page - 1 }} disabled={!hasPrev}>
+          <Button variant="outline" disabled={!hasPrev}>
+            Previous
+          </Button>
+        </Link>
+        <span className="text-sm text-muted-foreground">
+          Page {page} of {totalPages}
+        </span>
+        <Link to="/blog" search={{ page: page + 1 }} disabled={!hasNext}>
+          <Button variant="outline" disabled={!hasNext}>
+            Next
+          </Button>
+        </Link>
       </div>
     </Layout>
   );
