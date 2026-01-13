@@ -5,7 +5,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText } from "lucide-react";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
 import {
   Pagination,
   PaginationContent,
@@ -32,6 +40,26 @@ export function BlogList({ page }: BlogListProps) {
 
   const prevLink = page === 2 ? "/blog" : `/blog/page/${page - 1}`;
   const nextLink = `/blog/page/${page + 1}`;
+
+  if (posts.length === 0) {
+    return (
+      <Layout>
+        <h1 className="mb-8 text-5xl uppercase">Blog</h1>
+        <Empty>
+          <EmptyHeader>
+            <EmptyMedia variant="default">
+              <FileText />
+            </EmptyMedia>
+            <EmptyTitle>No posts yet</EmptyTitle>
+            <EmptyDescription>
+              Check back soon for new content.
+            </EmptyDescription>
+          </EmptyHeader>
+          <EmptyContent />
+        </Empty>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
