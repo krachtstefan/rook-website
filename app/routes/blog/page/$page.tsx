@@ -2,7 +2,6 @@ import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 
 import { BlogList } from "../-components/blog-list";
 import { ErrorPage } from "@/components/error-page";
-import Layout from "@/components/layout";
 import { paginatedPostListOptions } from "@/api/posts";
 
 export const Route = createFileRoute("/blog/page/$page")({
@@ -35,14 +34,12 @@ export const Route = createFileRoute("/blog/page/$page")({
 
 function NotFoundComponent() {
   return (
-    <Layout>
-      <ErrorPage
-        title="Page not found"
-        description="The page you're looking for doesn't exist."
-        to="/blog"
-        linkText="Back to Blog"
-      />
-    </Layout>
+    <ErrorPage
+      title="Page not found"
+      description="The page you're looking for doesn't exist."
+      to="/blog"
+      linkText="Back to Blog"
+    />
   );
 }
 

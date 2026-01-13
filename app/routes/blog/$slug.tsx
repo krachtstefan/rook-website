@@ -16,6 +16,7 @@ export const Route = createFileRoute("/blog/$slug")({
   validateSearch: postSearchSchema,
   loader: async ({ context: { queryClient }, params: { slug } }) => {
     const post = await queryClient.ensureQueryData(postOptions(slug));
+
     if (!post || !post.at(0)) {
       throw notFound();
     }
@@ -27,14 +28,12 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function NotFoundComponent() {
   return (
-    <Layout>
-      <ErrorPage
-        title="Post not found"
-        description="The post you're looking for doesn't exist or has been removed."
-        to="/blog"
-        linkText="Back to Blog"
-      />
-    </Layout>
+    <ErrorPage
+      title="Post not found"
+      description="The post you're looking for doesn't exist or has been removed."
+      to="/blog"
+      linkText="Back to Blog"
+    />
   );
 }
 

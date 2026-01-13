@@ -24,18 +24,20 @@ export function ErrorPage({
   linkText,
 }: ErrorPageProps) {
   return (
-    <Empty>
-      <EmptyHeader>
-        <EmptyMedia>
-          <Logo className="h-12 w-auto" />
-        </EmptyMedia>
-        <EmptyTitle>{title}</EmptyTitle>
-        <EmptyDescription>{description}</EmptyDescription>
-      </EmptyHeader>
-      <Button asChild>
-        <Link to={to}>{linkText}</Link>
-      </Button>
-    </Empty>
+    <ErrorPageContainer>
+      <Empty>
+        <EmptyHeader>
+          <EmptyMedia>
+            <Logo className="h-12 w-auto" />
+          </EmptyMedia>
+          <EmptyTitle>{title}</EmptyTitle>
+          <EmptyDescription>{description}</EmptyDescription>
+        </EmptyHeader>
+        <Button asChild>
+          <Link to={to}>{linkText}</Link>
+        </Button>
+      </Empty>
+    </ErrorPageContainer>
   );
 }
 
