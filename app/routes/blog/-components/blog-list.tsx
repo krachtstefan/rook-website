@@ -128,7 +128,7 @@ export function BlogList({ page }: BlogListProps) {
           </PaginationItem>
           <PaginationItem>
             <span className="px-4 text-sm text-muted-foreground">
-              Page {page} of {totalPages}
+              {page} of {totalPages}
             </span>
           </PaginationItem>
           <PaginationItem>
