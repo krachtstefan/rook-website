@@ -1,3 +1,4 @@
+import { ErrorPage, ErrorPageContainer } from "@/components/error-page";
 import {
   HeadContent,
   Outlet,
@@ -40,6 +41,7 @@ export const Route = createRootRouteWithContext<{
     ],
   }),
   component: RootComponent,
+  errorComponent: RootErrorComponent,
 });
 
 function RootComponent() {
@@ -64,5 +66,20 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <Scripts />
       </body>
     </html>
+  );
+}
+
+function RootErrorComponent({ error }: { error: Error }) {
+  return (
+    <RootDocument>
+      <ErrorPageContainer>
+        <ErrorPage
+          title="Something went wrong"
+          description={error.message || "An unexpected error occurred"}
+          to="/"
+          linkText="Go to Homepage"
+        />
+      </ErrorPageContainer>
+    </RootDocument>
   );
 }

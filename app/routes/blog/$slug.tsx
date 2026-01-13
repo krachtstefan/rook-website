@@ -1,7 +1,8 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ErrorPage } from "@/components/error-page";
 import Layout from "@/components/layout";
 import { postOptions } from "@/api/posts";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -13,22 +14,37 @@ const postSearchSchema = z.object({
 
 export const Route = createFileRoute("/blog/$slug")({
   validateSearch: postSearchSchema,
-  loader: ({ context: { queryClient }, params: { slug } }) =>
-    queryClient.ensureQueryData(postOptions(slug)),
+  loader: async ({ context: { queryClient }, params: { slug } }) => {
+    const post = await queryClient.ensureQueryData(postOptions(slug));
+    if (!post || !post.at(0)) {
+      throw notFound();
+    }
+    return post;
+  },
+  notFoundComponent: NotFoundComponent,
   component: RouteComponent,
 });
+
+function NotFoundComponent() {
+  return (
+    <Layout>
+      <ErrorPage
+        title="Post not found"
+        description="The post you're looking for doesn't exist or has been removed."
+        to="/blog"
+        linkText="Back to Blog"
+      />
+    </Layout>
+  );
+}
 
 function RouteComponent() {
   const { slug } = Route.useParams();
   const { page } = Route.useSearch();
   const postsQuery = useSuspenseQuery(postOptions(slug));
-  const post = postsQuery.data;
+  const post = postsQuery.data!;
 
   const backLink = page && page > 1 ? `/blog/page/${page}` : "/blog";
-
-  if (!post) {
-    return <div>Post not found</div>;
-  }
 
   return (
     <Layout>
