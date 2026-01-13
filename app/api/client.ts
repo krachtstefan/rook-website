@@ -27,7 +27,7 @@ const baseUrl = env.VITE_API_BASE_URL;
 
 export const apiClient = new Zodios(baseUrl, apiDefinition);
 
-export type PaginatedPostsResponse = {
+type PaginatedPostsResponse = {
   posts: z.infer<typeof PostSchema>[];
   totalPages: number;
   totalPosts: number;
