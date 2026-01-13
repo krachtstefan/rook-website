@@ -16,7 +16,7 @@ const apiDefinition = makeApi([
   },
   {
     method: "get",
-    path: "/wp-json/wp/v2/posts?slug=:slug",
+    path: "/wp-json/wp/v2/posts?_embed&slug=:slug",
     alias: "getPostBySlug",
     description: "Get post by slug",
     response: z.array(PostSchema),

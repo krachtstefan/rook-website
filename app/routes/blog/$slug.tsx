@@ -44,6 +44,7 @@ function RouteComponent() {
   const post = postsQuery.data!;
 
   const backLink = page && page > 1 ? `/blog/page/${page}` : "/blog";
+  const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 
   return (
     <Layout>
@@ -55,6 +56,15 @@ function RouteComponent() {
           </Link>
         </Button>
       </div>
+      {image && (
+        <div className="aspect-video w-full overflow-hidden rounded-lg border">
+          <img
+            src={image}
+            alt={post.title.rendered}
+            className="size-full object-cover"
+          />
+        </div>
+      )}
       <h1
         className="text-5xl uppercase"
         dangerouslySetInnerHTML={{ __html: post.title.rendered }}
