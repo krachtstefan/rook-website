@@ -10,11 +10,11 @@ import {
   Pagination,
   PaginationContent,
   PaginationItem,
+  PaginationLink,
 } from "@/components/ui/pagination";
 
 import Layout from "@/components/layout";
 import { Link } from "@tanstack/react-router";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { paginatedPostListOptions } from "@/api/posts";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -85,19 +85,18 @@ export function BlogList({ page }: BlogListProps) {
       <Pagination className="mt-8">
         <PaginationContent>
           <PaginationItem>
-            <Link
+            <PaginationLink
               to={prevLink}
-              disabled={!hasPrev}
               aria-label="Go to previous page"
+              size="default"
               className={cn(
-                buttonVariants({ variant: "ghost", size: "default" }),
                 "gap-1 pl-2.5",
                 !hasPrev && "pointer-events-none opacity-50"
               )}
             >
               <ChevronLeft className="size-4" />
               <span>Previous</span>
-            </Link>
+            </PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <span className="px-4 text-sm text-muted-foreground">
@@ -105,19 +104,18 @@ export function BlogList({ page }: BlogListProps) {
             </span>
           </PaginationItem>
           <PaginationItem>
-            <Link
+            <PaginationLink
               to={nextLink}
-              disabled={!hasNext}
               aria-label="Go to next page"
+              size="default"
               className={cn(
-                buttonVariants({ variant: "ghost", size: "default" }),
                 "gap-1 pr-2.5",
                 !hasNext && "pointer-events-none opacity-50"
               )}
             >
               <span>Next</span>
               <ChevronRight className="size-4" />
-            </Link>
+            </PaginationLink>
           </PaginationItem>
         </PaginationContent>
       </Pagination>
