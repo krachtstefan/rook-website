@@ -1,5 +1,5 @@
-import type { LinkOptions } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
+import type { LinkOptions } from "@tanstack/react-router";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +15,11 @@ export function NavMenuLink({
 }: NavMenuLinkProps) {
   return (
     <NavigationMenuLink asChild>
-      <Link {...linkOptions} className={cn("py-1.5", className)}>
+      <Link
+        {...linkOptions}
+        className={cn("py-1.5", className)}
+        activeProps={{ "data-active": true }}
+      >
         {label}
       </Link>
     </NavigationMenuLink>
