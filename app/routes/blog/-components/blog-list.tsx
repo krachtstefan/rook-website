@@ -44,6 +44,7 @@ export function BlogList({ page }: BlogListProps) {
               key={post.id}
               to="/blog/$slug"
               params={{ slug: post.slug }}
+              search={{ page }}
               className="block h-full transition-transform hover:scale-[1.02]"
             >
               <Card className="h-full overflow-hidden">

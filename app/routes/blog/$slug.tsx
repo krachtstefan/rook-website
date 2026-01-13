@@ -5,8 +5,14 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout";
 import { postOptions } from "@/api/posts";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { z } from "zod";
+
+const postSearchSchema = z.object({
+  page: z.number().int().positive().optional(),
+});
 
 export const Route = createFileRoute("/blog/$slug")({
+  validateSearch: postSearchSchema,
   loader: ({ context: { queryClient }, params: { slug } }) =>
     queryClient.ensureQueryData(postOptions(slug)),
   component: RouteComponent,
@@ -14,8 +20,11 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function RouteComponent() {
   const { slug } = Route.useParams();
+  const { page } = Route.useSearch();
   const postsQuery = useSuspenseQuery(postOptions(slug));
   const post = postsQuery.data;
+
+  const backLink = page && page > 1 ? `/blog/page/${page}` : "/blog";
 
   if (!post) {
     return <div>Post not found</div>;
@@ -25,7 +34,7 @@ function RouteComponent() {
     <Layout>
       <div className="flex w-full justify-start">
         <Button asChild variant="outline">
-          <Link to="/blog">
+          <Link to={backLink}>
             <ArrowLeft className="mr-2 size-4" />
             Back to Blog
           </Link>
