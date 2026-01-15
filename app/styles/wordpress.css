@@ -134,5 +134,18 @@
     & .wp-block-gallery .wp-block-image img {
       @apply h-auto w-full transition-transform duration-300 hover:scale-105;
     }
+
+    /* YouTube Embed - Full Width */
+    & .wp-block-embed-youtube {
+      @apply mb-4;
+    }
+
+    & .wp-block-embed-youtube .wp-block-embed__wrapper {
+      @apply relative aspect-video w-full;
+    }
+
+    & .wp-block-embed-youtube .wp-block-embed__wrapper iframe {
+      @apply absolute inset-0 h-full w-full;
+    }
   }
 }
