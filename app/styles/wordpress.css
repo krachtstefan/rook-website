@@ -52,7 +52,11 @@
     }
 
     & figure.size-full {
-      @apply flex justify-center;
+      @apply flex flex-col items-center;
+    }
+
+    & figcaption.wp-element-caption {
+      @apply mt-2 text-center text-sm text-muted-foreground;
     }
 
     /* Headings */
